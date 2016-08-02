@@ -18,7 +18,7 @@
 ////#include "pktdef.h"
 
 typedef std::unique_ptr<WacomMTHitRect> WacomMTHitRectPtr;
-void getFingerData();
+
 
 class ofApp : public ofBaseApp{
 	
@@ -42,6 +42,11 @@ class ofApp : public ofBaseApp{
 		static bool getCallbackType(); // True: by HWND
 		static void changeCallbackType();
 		//static void ofDrawManual(int setCount, int deviceID, WacomMTFingerCollection* fingers);
+
+		static void setFingerino(WacomMTFinger* fingers);
+		static void setCount(int fingerCount);
+		static void setDevice(int deviceID);
+		static void setVersion(int DeviceVersion);
 
 
 		//Variaveis publicas
@@ -98,7 +103,7 @@ public:
 	static WacomMTError UnregisterCallback(int deviceID, HWND hWnd);
 	static int FingerCallback(WacomMTFingerCollection *fingerPoint, void *UserRef);
 	static WacomMTFingerCollection getCallbackInfo();
-	static void setCallbackInfo(WacomMTFingerCollection fingerData);
+	static void setFingerVariables(WacomMTFingerCollection fingerData);
 
 	static WacomMTFingerCollection callbackInfo;
 
